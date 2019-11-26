@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/project/project",
+    "pages/chapter/chapter",
+    "pages/tree/tree",
+    "pages/nav/nav",
+    "pages/index/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#707070",
+    "selectedColor": "#FE6243",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home_fill.png"
+      },
+      {
+        "pagePath": "pages/project/project",
+        "text": "项目",
+        "iconPath": "images/project.png",
+        "selectedIconPath": "images/project_fill.png"
+      },
+      {
+        "pagePath": "pages/tree/tree",
+        "text": "体系",
+        "iconPath": "images/tree.png",
+        "selectedIconPath": "images/tree_fill.png"
+      },
+      {
+        "pagePath": "pages/nav/nav",
+        "text": "导航",
+        "iconPath": "images/nav.png",
+        "selectedIconPath": "images/nav_fill.png"
+      },
+      {
+        "pagePath": "pages/chapter/chapter",
+        "text": "公众号",
+        "iconPath": "images/chapter.png",
+        "selectedIconPath": "images/chapter_fill.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
