@@ -22,7 +22,7 @@ function request(method, url, param, isShowLoading) {
           wx.hideLoading();
         }
         if (res.data.errorCode == '0') { // 接口正常返回
-          resolve(res.data);
+          resolve(res.data.data);
         } else { // 出现异常
           wx.showToast({
             title: res.data.errorMsg,

@@ -8,7 +8,8 @@
     "pages/index/index"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundColor": "#f4f4f4",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"

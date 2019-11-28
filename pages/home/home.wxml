@@ -1,2 +1,21 @@
-<!--pages/home/home.wxml-->
-<text>pages/home/home.wxml</text>
+<view class="top">
+  <swiper class="banner" autoplay="true" interval="3000" duration="500" bindchange="swiperChange">
+    <swiper-item wx:for="{{bannerList}}" wx:key="index">
+      <view class="banner">
+        <image mode="scaleToFill" src="{{item.imagePath}}"></image>
+        <view class="title">{{item.title}}</view>
+      </view>
+    </swiper-item>
+  </swiper>
+  <text class="indicator">{{swiperIndex+1}}/{{bannerList.length}}</text>
+</view>
+<block wx:for="{{articleList.datas}}" wx:key="index">
+  <view class="article">
+    <text class="title">{{item.title}}</text>
+    <view class="bottom">
+      <text class="type" wx:if="{{item.tags.length>0}}">{{item.tags[0].name}}</text>
+      <text class="author" wx:if="{{item.author!=''}}">{{item.author}}</text>
+      <text class="date">{{item.niceDate}}</text>
+    </view>
+  </view>
+</block>

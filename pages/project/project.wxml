@@ -1,2 +1,10 @@
 <!--pages/project/project.wxml-->
-<text>pages/project/project.wxml</text>
+<scroll-view scroll-x="true" scroll-with-animation="true" class="category">
+  <view wx:for="{{categoryList}}" class="item {{index==swiperIndex?'active':''}}" wx:key="index" scroll-left="{{scrollLeft}}" catchtap="tabCahnge">{{item.name}}</view>
+</scroll-view>
+<swiper class="project" current="{{swiperIndex}}" bindchange="swiperChange">
+  <swiper-item wx:for="{{categoryList}}" wx:key="index">
+    <scroll-view scroll-y="true" bindscrolltolower="lower"  style="height: 100%;-webkit-overflow-scrolling: touch;" scroll-anchoring="true">
+    </scroll-view>
+  </swiper-item>
+</swiper>
