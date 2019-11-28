@@ -5,3 +5,7 @@
   height: 0;
   color: transparent;
 }
+
+page {
+  background-color: #f4f4f4;
+}

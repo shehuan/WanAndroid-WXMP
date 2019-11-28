@@ -24,6 +24,55 @@ page {
   border-bottom: 4rpx solid #fe6243;
 }
 
+.project-group {
+  flex-grow: 1;
+}
+
 .project {
+  padding: 20rpx;
+  box-sizing: border-box;
+  position: relative;
+  background: white;
+  border-bottom: 1px #cdcdcd solid;
+  display: flex;
+}
+
+.project image {
+  width: 110rpx;
+  height: 200rpx;
+}
+
+.project .content {
   flex: 1;
+  overflow: hidden;
+  margin-left: 20rpx;
+  position: relative;
+}
+
+.content .title {
+  font-size: 32rpx;
+  color: #2c2c2c;
+  font-weight: bold;
+  
+  word-wrap: break-word;
+  word-break: normal;
+}
+
+.content .bottom {
+  position: absolute;
+  bottom: 0rpx;
+}
+
+.bottom .author {
+  font-size: 20rpx;
+  color: #25c6fc;
+  border: 1px #25c6fc solid;
+  border-radius: 8rpx;
+  padding: 2rpx 5rpx;
+  margin-right: 30rpx;
+}
+
+.bottom .date {
+  font-size: 20rpx;
+  color: #bfbfbf;
 }

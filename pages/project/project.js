@@ -6,7 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    swiperIndex: 0
+    swiperIndex: 0,
+    categoryItems: [],
+    scrollWidth: 0,
+    projectList: [],
   },
 
   /**
@@ -23,59 +26,92 @@ Page({
         // let list = data.unshift({
         //   name: '最新项目'
         // });
-        this.setData({
-          categoryList: data
+        data.forEach((item, index) => {
+          this.data.projectList[index] = {
+            datas: [],
+            curPage: 0,
+          }
         })
+        this.setData({
+          categoryList: data,
+          projectList: this.data.projectList
+        });
+        this.getProjectList();
+        this.onReady()
       })
   },
 
-  swiperChange: function(event) {
-    this.setData({
-      swiperIndex: event.detail.current
-    })
-    console.log(event.detail.current)
+  // 项目列表
+  getProjectList: function() {
+    let index = this.data.swiperIndex;
+    let cid = this.data.categoryList[index].id;
+    let curPage = this.data.projectList[index].curPage;
+    api.projectDetail(curPage + 1, {
+      cid: cid
+    }).then(data => {
+      this.data.projectList[index].datas.push(...data.datas);
+      this.data.projectList[index].curPage = data.curPage;
+      this.data.projectList[index].pageCount = data.pageCount;
 
-    // let that = this;
-    // let index = e.detail.current;
-    // let left_distance = that.data.left_distance;
-    // let id = left_distance[index].id,
-    //   item_left = left_distance[index].left,
-    //   item_width = left_distance[index].width,
-    //   scrollWidth = that.data.scrollWidth;
-    // let distance = item_left - (scrollWidth / 2 - item_width / 2);
-    // that.setData({
-    //   shop_classify_index: index,
-    //   scroll_left: distance
-    // });
+      let key = 'projectList[' + index + ']'
+      console.log(this.data.projectList[index])
+      this.setData({
+        projectList: this.data.projectList
+      })
+    })
+  },
+
+  swiperChange: function(event) {
+    let index = event.detail.current;
+    let item = this.data.categoryItems[index];
+    let distance = item.left - (this.data.scrollWidth / 2 - item.width / 2);
+
+    this.setData({
+      swiperIndex: index,
+      scrollLeft: distance
+    })
+
+    this.getProjectList();
   },
 
   tabCahnge: function(event) {
-    console.log(event)
+    let index = event.currentTarget.dataset.index;
+    this.setData({
+      swiperIndex: index
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-    // let that = this,
-    //   left_distance = [];
-    // util.getDom('.shop_classify_list')
-    //   .then((rect) => {
-    //     rect.forEach((item) => {
-    //       left_distance.push(item);
-    //     });
-    //     return Promise.resolve(rect);
-    //   })
-    //   .then((rect) => {
-    //     util.getDom('#scroll_view')
-    //       .then((rect) => {
+    let that = this;
 
-    //         that.setData({
-    //           scrollWidth: rect && rect.length <= 0 ? 0 : rect[0].width,
-    //           left_distance: left_distance
-    //         });
-    //       });
-    //   });
+    let query = wx.createSelectorQuery();
+    query.selectAll('.item').boundingClientRect();
+    query.selectViewport().scrollOffset();
+    query.exec(function(res) {
+      res[0].forEach((item) => {
+        that.data.categoryItems.push(item);
+      })
+    });
+
+    let query2 = wx.createSelectorQuery();
+    query2.select('.category').boundingClientRect();
+    query2.selectViewport().scrollOffset();
+    query2.exec(function(res) {
+      that.data.scrollWidth = res[0].width;
+    });
+
+  },
+
+  loadMore: function() {
+    let index = this.data.swiperIndex;
+    if (this.data.projectList[index].curPage < this.data.projectList[index].pageCount) {
+      this.getProjectList()
+    } else {
+
+    }
   },
 
   /**

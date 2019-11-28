@@ -1,10 +1,20 @@
 <!--pages/project/project.wxml-->
-<scroll-view scroll-x="true" scroll-with-animation="true" class="category">
-  <view wx:for="{{categoryList}}" class="item {{index==swiperIndex?'active':''}}" wx:key="index" scroll-left="{{scrollLeft}}" catchtap="tabCahnge">{{item.name}}</view>
+<scroll-view scroll-x="true" scroll-with-animation="true" class="category" scroll-left="{{scrollLeft}}">
+  <view wx:for="{{categoryList}}" class="item {{index==swiperIndex?'active':''}}" wx:key="index" catchtap="tabCahnge" data-index="{{index}}">{{item.name}}</view>
 </scroll-view>
-<swiper class="project" current="{{swiperIndex}}" bindchange="swiperChange">
-  <swiper-item wx:for="{{categoryList}}" wx:key="index">
-    <scroll-view scroll-y="true" bindscrolltolower="lower"  style="height: 100%;-webkit-overflow-scrolling: touch;" scroll-anchoring="true">
+<swiper class="project-group" current="{{swiperIndex}}" bindchange="swiperChange">
+  <swiper-item wx:for="{{projectList}}" wx:key="index">
+    <scroll-view scroll-y="true" bindscrolltolower="loadMore" style="height: 100%;-webkit-overflow-scrolling: touch;" scroll-anchoring="true">
+      <view class="project" wx:for="{{item.datas}}">
+        <image src="{{item.envelopePic}}"></image>
+        <view class="content">
+          <text class="title">{{item.title}}</text>
+          <view class="bottom">
+            <text class="author">{{item.author}}</text>
+            <text class="date">{{item.niceDate}}</text>
+          </view>
+        </view>
+      </view>
     </scroll-view>
   </swiper-item>
 </swiper>
