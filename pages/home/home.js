@@ -7,9 +7,9 @@ Page({
    */
   data: {
     swiperIndex: 0,
-    pageNum: 0,
     articleList: {
-      datas: []
+      datas: [],
+      curPage: 0,
     }
   },
 
@@ -34,9 +34,11 @@ Page({
 
   // 文章列表
   getArticleList: function() {
-    api.articleList(this.data.pageNum)
+    let curPage = this.data.articleList.curPage;
+    api.articleList(curPage)
       .then(data => {
         this.data.articleList.datas.push(...data.datas);
+        this.data.articleList.curPage = data.curPage;
         this.data.articleList.pageCount = data.pageCount;
         this.setData({
           articleList: this.data.articleList
@@ -95,9 +97,13 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-    if (this.data.pageNum < this.data.articleList.pageCount) {
-      this.data.pageNum += 1;
+    if (this.data.articleList.curPage < this.data.articleList.pageCount) {
       this.getArticleList();
+    } else {
+      wx.showToast({
+        title: '没有了哦~',
+        icon: 'none'
+      })
     }
   },
 

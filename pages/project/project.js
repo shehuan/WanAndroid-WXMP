@@ -23,9 +23,9 @@ Page({
   getProjectCategory: function() {
     api.projectCategory()
       .then(data => {
-        // let list = data.unshift({
-        //   name: '最新项目'
-        // });
+        data.unshift({
+          name: '最新项目'
+        });
         data.forEach((item, index) => {
           this.data.projectList[index] = {
             datas: [],
@@ -36,8 +36,17 @@ Page({
           categoryList: data,
           projectList: this.data.projectList
         });
-        this.getProjectList();
+        this.getNewProjectList();
         this.onReady()
+      })
+  },
+
+  // 最新项目列表
+  getNewProjectList: function() {
+    let curPage = this.data.projectList[0].curPage;
+    api.newProject(curPage)
+      .then(data => {
+        this.saveProjectList(0, data)
       })
   },
 
@@ -49,18 +58,21 @@ Page({
     api.projectDetail(curPage + 1, {
       cid: cid
     }).then(data => {
-      this.data.projectList[index].datas.push(...data.datas);
-      this.data.projectList[index].curPage = data.curPage;
-      this.data.projectList[index].pageCount = data.pageCount;
-
-      let key = 'projectList[' + index + ']'
-      console.log(this.data.projectList[index])
-      this.setData({
-        projectList: this.data.projectList
-      })
+      this.saveProjectList(index, data)
     })
   },
 
+  saveProjectList: function(index, data) {
+    this.data.projectList[index].datas.push(...data.datas);
+    this.data.projectList[index].curPage = data.curPage;
+    this.data.projectList[index].pageCount = data.pageCount;
+
+    this.setData({
+      projectList: this.data.projectList
+    })
+  },
+
+  // 滑动切换swiper
   swiperChange: function(event) {
     let index = event.detail.current;
     let item = this.data.categoryItems[index];
@@ -71,9 +83,18 @@ Page({
       scrollLeft: distance
     })
 
-    this.getProjectList();
+    if (this.data.projectList[index].datas.length > 0) {
+      return;
+    }
+
+    if (index == 0) {
+      this.getNewProjectList();
+    } else {
+      this.getProjectList();
+    }
   },
 
+  // 点击tab切换swiper
   tabCahnge: function(event) {
     let index = event.currentTarget.dataset.index;
     this.setData({
@@ -87,6 +108,7 @@ Page({
   onReady: function() {
     let that = this;
 
+    // 计算每个item测尺寸
     let query = wx.createSelectorQuery();
     query.selectAll('.item').boundingClientRect();
     query.selectViewport().scrollOffset();
@@ -96,6 +118,7 @@ Page({
       })
     });
 
+    // 计算分类滚动区域尺寸
     let query2 = wx.createSelectorQuery();
     query2.select('.category').boundingClientRect();
     query2.selectViewport().scrollOffset();
@@ -105,12 +128,20 @@ Page({
 
   },
 
+  // 分页
   loadMore: function() {
     let index = this.data.swiperIndex;
     if (this.data.projectList[index].curPage < this.data.projectList[index].pageCount) {
-      this.getProjectList()
+      if (index == 0) {
+        this.getNewProjectList();
+      } else {
+        this.getProjectList();
+      }
     } else {
-
+      wx.showToast({
+        title: '没有了哦~',
+        icon: 'none'
+      })
     }
   },
 

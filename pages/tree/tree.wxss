@@ -1,1 +1,38 @@
 /* pages/tree/tree.wxss */
+
+.tree {
+  background: white;
+  padding: 20rpx;
+  border-bottom: 10rpx #eeeef5 solid;
+  display: flex;
+  align-items: center;
+}
+
+image{
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.content {
+  flex: 1;
+  margin-right: 20rpx;
+}
+
+.content .title {
+  font-size: 32rpx;
+  color: #2c2c2c;
+  font-weight: bold;
+}
+
+.content .children {
+  margin-top: 35rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.children .item {
+  font-size: 26rpx;
+  color: #8a8a8a;
+  margin-right: 30rpx;
+  margin-top: 10rpx;
+}

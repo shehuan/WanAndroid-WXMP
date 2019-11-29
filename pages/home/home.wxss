@@ -48,6 +48,13 @@
   font-size: 32rpx;
   color: #2c2c2c;
   font-weight: bold;
+  word-wrap: break-word;
+  white-space: normal !important;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .article .bottom {

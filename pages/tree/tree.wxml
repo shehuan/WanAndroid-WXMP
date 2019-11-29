@@ -1,2 +1,11 @@
-<!--pages/tree/tree.wxml-->
-<text>pages/tree/tree.wxml</text>
+<block wx:for="{{treeList}}" wx:key="index">
+  <view class="tree">
+    <view class="content">
+      <view class="title">{{item.name}}</view>
+      <view class="children">
+        <text class="item" wx:for="{{item.children}}" wx:key="index">{{item.name}}</text>
+      </view>
+    </view>
+    <image src="../../images/right_arrow.png"></image>
+  </view>
+</block>

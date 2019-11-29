@@ -1,14 +1,14 @@
-<!--pages/project/project.wxml-->
 <scroll-view scroll-x="true" scroll-with-animation="true" class="category" scroll-left="{{scrollLeft}}">
   <view wx:for="{{categoryList}}" class="item {{index==swiperIndex?'active':''}}" wx:key="index" catchtap="tabCahnge" data-index="{{index}}">{{item.name}}</view>
 </scroll-view>
 <swiper class="project-group" current="{{swiperIndex}}" bindchange="swiperChange">
   <swiper-item wx:for="{{projectList}}" wx:key="index">
     <scroll-view scroll-y="true" bindscrolltolower="loadMore" style="height: 100%;-webkit-overflow-scrolling: touch;" scroll-anchoring="true">
-      <view class="project" wx:for="{{item.datas}}">
+      <view class="project" wx:for="{{item.datas}}" wx:key="index">
         <image src="{{item.envelopePic}}"></image>
         <view class="content">
           <text class="title">{{item.title}}</text>
+          <text class="desc">{{item.desc}}</text>
           <view class="bottom">
             <text class="author">{{item.author}}</text>
             <text class="date">{{item.niceDate}}</text>

@@ -38,8 +38,8 @@ page {
 }
 
 .project image {
-  width: 110rpx;
-  height: 200rpx;
+  width: 120rpx;
+  height: 220rpx;
 }
 
 .project .content {
@@ -53,9 +53,26 @@ page {
   font-size: 32rpx;
   color: #2c2c2c;
   font-weight: bold;
-  
   word-wrap: break-word;
-  word-break: normal;
+  white-space: normal !important;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.content .desc {
+  font-size: 24rpx;
+  color: #8a8a8a;
+  margin-top: 10rpx;
+  word-wrap: break-word;
+  white-space: normal !important;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .content .bottom {
