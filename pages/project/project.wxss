@@ -52,7 +52,6 @@ page {
 .content .title {
   font-size: 32rpx;
   color: #2c2c2c;
-  font-weight: bold;
   word-wrap: break-word;
   white-space: normal !important;
   display: -webkit-box;

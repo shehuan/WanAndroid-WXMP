@@ -1,2 +1,9 @@
 <!--pages/nav/nav.wxml-->
-<text>pages/nav/nav.wxml</text>
+<view class="root">
+  <scroll-view class="left">
+    <view class="item {{index==selectIndex?'item-active':''}}" wx:for="{{naviList}}" wx:key="index" data-index="{{index}}" bindtap="leftClick">
+      <text class="{{index==selectIndex?'content-active':''}}">{{item.name}}</text>
+    </view>
+  </scroll-view>
+  <scroll-view class="right"></scroll-view>
+</view>

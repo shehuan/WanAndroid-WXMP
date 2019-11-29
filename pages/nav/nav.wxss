@@ -1,1 +1,41 @@
 /* pages/nav/nav.wxss */
+
+.root {
+  display: flex;
+}
+
+.left {
+  width: 200rpx;
+  height: 100%;
+}
+
+.left .item {
+  height: 100rpx;
+  /* line-height: 100rpx; */
+  border-bottom: 1px #bfbfbf solid;
+  border-right: 1px #bfbfbf solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.left .item-active {
+  border-right: none;
+}
+
+.left .item text {
+  color: #2c2c2c;
+  font-size: 28rpx;
+  text-align: center;
+  display: block;
+}
+
+.left .item .content-active {
+  border-left: 5rpx #fe6243 solid;
+  color: #fe6243;
+}
+
+.right {
+  flex: 1;
+  height: 100%;
+}

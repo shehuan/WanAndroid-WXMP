@@ -21,7 +21,6 @@ image{
 .content .title {
   font-size: 32rpx;
   color: #2c2c2c;
-  font-weight: bold;
 }
 
 .content .children {

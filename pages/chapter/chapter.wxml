@@ -1,2 +1,4 @@
 <!--pages/chapter/chapter.wxml-->
-<text>pages/chapter/chapter.wxml</text>
+<view class="chapter">
+  <view class="item" wx:for="{{chapterList}}" wx:key="index">{{item.name}}</view>
+</view>

@@ -1,1 +1,39 @@
 /* pages/chapter/chapter.wxss */
+
+.chapter {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  width: 50%;
+  height: 190rpx;
+  line-height: 190rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #2c2c2c;
+}
+
+.item:nth-child(6n) {
+  background-color: #9dd3fa;
+}
+
+.item:nth-child(6n + 1) {
+  background-color: #f7f7d0;
+}
+
+.item:nth-child(6n + 2) {
+  background-color: #ffc09f;
+}
+
+.item:nth-child(6n + 3) {
+  background-color: #a0d8de;
+}
+
+.item:nth-child(6n + 4) {
+  background-color: #e2dbbe;
+}
+
+.item:nth-child(6n + 5) {
+  background-color: #eae1f0;
+}
