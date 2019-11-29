@@ -14,26 +14,26 @@
   color: #2c2c2c;
 }
 
-.item:nth-child(6n) {
+.item:nth-child(6n + 1) {
   background-color: #9dd3fa;
 }
 
-.item:nth-child(6n + 1) {
+.item:nth-child(6n + 2) {
   background-color: #f7f7d0;
 }
 
-.item:nth-child(6n + 2) {
+.item:nth-child(6n + 3) {
   background-color: #ffc09f;
 }
 
-.item:nth-child(6n + 3) {
+.item:nth-child(6n + 4) {
   background-color: #a0d8de;
 }
 
-.item:nth-child(6n + 4) {
+.item:nth-child(6n + 5) {
   background-color: #e2dbbe;
 }
 
-.item:nth-child(6n + 5) {
+.item:nth-child(6n + 6) {
   background-color: #eae1f0;
 }

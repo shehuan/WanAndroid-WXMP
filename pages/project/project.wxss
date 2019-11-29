@@ -25,7 +25,7 @@ page {
 }
 
 .project-group {
-  flex-grow: 1;
+  flex: 1;
 }
 
 .project {
@@ -33,7 +33,7 @@ page {
   box-sizing: border-box;
   position: relative;
   background: white;
-  border-bottom: 1px #cdcdcd solid;
+  border-bottom: 1rpx #cdcdcd solid;
   display: flex;
 }
 

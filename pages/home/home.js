@@ -87,8 +87,10 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-    this.data.pageNum = 0;
-    this.data.articleList.datas = [];
+    this.data.articleList = {
+      datas: [],
+      curPage: 0,
+    }
     this.getBanner();
     this.getArticleList();
   },

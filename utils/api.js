@@ -12,7 +12,7 @@ let logout = () => wxRequest.get('/user/logout/json');
 // 首页banner
 let banner = () => wxRequest.get('/banner/json');
 
-// 常用网站
+// 热门网站
 let friend = () => wxRequest.get('/friend/json');
 
 // 首页文章列表

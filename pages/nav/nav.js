@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    selectIndex: 0
+    selectIndex: 0,
+    naviData: []
   },
 
   /**
@@ -15,15 +16,42 @@ Page({
   onLoad: function(options) {
     api.navi()
       .then(data => {
-        this.setData({
-          naviList: data
+        this.data.naviData = data;
+        let naviList = ['热门网站']
+        data.forEach((item) => {
+          naviList.push(item.name);
         })
+
+        this.setData({
+          naviList: naviList,
+        })
+
+        api.friend()
+          .then(data => {
+            let list = []
+            data.forEach((item) => {
+              list.push({
+                link: item.link,
+                title: item.name
+              });
+            })
+
+            this.data.naviData.unshift({
+              articles: list
+            })
+
+            this.setData({
+              websites: this.data.naviData[0].articles
+            })
+          })
       })
   },
 
   leftClick: function(event) {
+    let index = event.currentTarget.dataset.index;
     this.setData({
-      selectIndex: event.currentTarget.dataset.index
+      selectIndex: index,
+      websites: this.data.naviData[index].articles
     })
   },
 
@@ -31,7 +59,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-
+    let that = this;
+    wx.getSystemInfo({
+      success: function(res) {
+        that.setData({
+          scrollHeight: res.windowHeight
+        })
+      },
+    })
   },
 
   /**

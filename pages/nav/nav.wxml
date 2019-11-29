@@ -1,9 +1,13 @@
 <!--pages/nav/nav.wxml-->
 <view class="root">
-  <scroll-view class="left">
+  <scroll-view class="left" style="height:{{scrollHeight}}px;" scroll-y="true">
     <view class="item {{index==selectIndex?'item-active':''}}" wx:for="{{naviList}}" wx:key="index" data-index="{{index}}" bindtap="leftClick">
-      <text class="{{index==selectIndex?'content-active':''}}">{{item.name}}</text>
+      <view class="{{index==selectIndex?'content-active':''}}">{{item}}</view>
     </view>
   </scroll-view>
-  <scroll-view class="right"></scroll-view>
+  <scroll-view class="right" style="height:{{scrollHeight}}px;" scroll-y="true">
+    <view class="content">
+      <text class="item" wx:for="{{websites}}" wx:key="index">{{item.title}}</text>
+    </view>
+  </scroll-view>
 </view>
