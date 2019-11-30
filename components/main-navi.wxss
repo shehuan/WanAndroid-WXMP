@@ -1,0 +1,36 @@
+/* components/MainNavi.wxss */
+
+.navi {
+  background-color: #fe6243;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.menu {
+  border: 1rpx white solid;
+  border-radius: 1000rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10rpx 0;
+}
+
+.line {
+  width: 1rpx;
+  height: 100%;
+  margin: 0 10rpx;
+  background-color: white;
+}
+
+.icon{
+  z-index: 999;
+}
+
+.title{
+  width: 100%;
+  color: white;
+  font-size: 28rpx;
+  text-align: center;
+  position: absolute;
+}

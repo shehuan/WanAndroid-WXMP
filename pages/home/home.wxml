@@ -1,7 +1,8 @@
+<main-navi title="首页"></main-navi>
 <view class="top">
   <swiper class="banner" autoplay="true" interval="3000" duration="500" bindchange="swiperChange">
     <swiper-item wx:for="{{bannerList}}" wx:key="index">
-      <view class="banner">
+      <view class="banner" bindtap="toArticleDetail" data-link="{{item.url}}">
         <image mode="scaleToFill" src="{{item.imagePath}}"></image>
         <view class="title">{{item.title}}</view>
       </view>
@@ -10,7 +11,7 @@
   <text class="indicator">{{swiperIndex+1}}/{{bannerList.length}}</text>
 </view>
 <block wx:for="{{articleList.datas}}" wx:key="index">
-  <view class="article">
+  <view class="article" bindtap="toArticleDetail" data-link="{{item.link}}" hover-class="item-hover" hover-stay-time="200">
     <text class="title">{{item.title}}</text>
     <view class="bottom">
       <text class="type" wx:if="{{item.tags.length>0}}">{{item.tags[0].name}}</text>

@@ -1,5 +1,5 @@
-let api = require('../../utils/api.js')
-let util = require('../../utils/util.js')
+let api = require('../../../utils/api.js')
+let util = require('../../../utils/util.js')
 
 Page({
 
@@ -10,66 +10,52 @@ Page({
     swiperIndex: 0,
     categoryItems: [],
     scrollWidth: 0,
-    projectList: [],
+    articleList: [],
+    categoryList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.getProjectCategory();
-  },
-
-  //项目分类
-  getProjectCategory: function() {
-    api.projectCategory()
-      .then(data => {
-        data.unshift({
-          name: '最新项目'
-        });
-        data.forEach((item, index) => {
-          this.data.projectList[index] = {
-            datas: [],
-            curPage: 0,
-          }
-        })
-        this.setData({
-          categoryList: data,
-          projectList: this.data.projectList
-        });
-        this.getNewProjectList();
-        this.onReady();
+    wx.setNavigationBarTitle({
+      title: options.name
+    });
+    let categoryList = JSON.parse(decodeURIComponent(options.categoryList));
+    categoryList.forEach(item => {
+      this.data.articleList.push({
+        datas: [],
+        curPage: 0,
       })
+    });
+
+    this.setData({
+      categoryList: categoryList,
+      articleList: this.data.articleList
+    });
+
+    this.getArticleList();
   },
 
-  // 最新项目列表
-  getNewProjectList: function() {
-    let curPage = this.data.projectList[0].curPage;
-    api.newProject(curPage)
-      .then(data => {
-        this.saveProjectList(0, data)
-      })
-  },
-
-  // 项目列表
-  getProjectList: function() {
+  // 分类体系下的文章列表
+  getArticleList: function() {
     let index = this.data.swiperIndex;
     let cid = this.data.categoryList[index].id;
-    let curPage = this.data.projectList[index].curPage;
-    api.projectDetail(curPage + 1, {
+    let curPage = this.data.articleList[index].curPage;
+    api.treeDetail(curPage, {
       cid: cid
     }).then(data => {
-      this.saveProjectList(index, data)
+      this.saveArticleList(index, data)
     })
   },
 
-  saveProjectList: function(index, data) {
-    this.data.projectList[index].datas.push(...data.datas);
-    this.data.projectList[index].curPage = data.curPage;
-    this.data.projectList[index].pageCount = data.pageCount;
+  saveArticleList: function(index, data) {
+    this.data.articleList[index].datas.push(...data.datas);
+    this.data.articleList[index].curPage = data.curPage;
+    this.data.articleList[index].pageCount = data.pageCount;
 
     this.setData({
-      projectList: this.data.projectList
+      articleList: this.data.articleList
     })
   },
 
@@ -84,14 +70,20 @@ Page({
       scrollLeft: distance
     })
 
-    if (this.data.projectList[index].datas.length > 0) {
+    if (this.data.articleList[index].datas.length > 0) {
       return;
     }
 
-    if (index == 0) {
-      this.getNewProjectList();
+    this.getArticleList();
+  },
+
+  // 分页
+  loadMore: function() {
+    let index = this.data.swiperIndex;
+    if (this.data.articleList[index].curPage < this.data.articleList[index].pageCount) {
+      this.getArticleList();
     } else {
-      this.getProjectList();
+      util.toast('没有了哦~');
     }
   },
 
@@ -120,20 +112,6 @@ Page({
       .then(res => {
         this.data.scrollWidth = res;
       })
-  },
-
-  // 分页
-  loadMore: function() {
-    let index = this.data.swiperIndex;
-    if (this.data.projectList[index].curPage < this.data.projectList[index].pageCount) {
-      if (index == 0) {
-        this.getNewProjectList();
-      } else {
-        this.getProjectList();
-      }
-    } else {
-      util.toast('没有了哦~');
-    }
   },
 
   toArticleDetail: function (event) {

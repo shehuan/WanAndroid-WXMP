@@ -1,4 +1,4 @@
-<!--pages/nav/nav.wxml-->
+<main-navi title="导航"></main-navi>
 <view class="root">
   <scroll-view class="left" style="height:{{scrollHeight}}px;" scroll-y="true">
     <view class="item {{index==selectIndex?'item-active':''}}" wx:for="{{naviList}}" wx:key="index" data-index="{{index}}" bindtap="leftClick">
@@ -7,7 +7,7 @@
   </scroll-view>
   <scroll-view class="right" style="height:{{scrollHeight}}px;" scroll-y="true">
     <view class="content">
-      <text class="item" wx:for="{{websites}}" wx:key="index">{{item.title}}</text>
+      <view class="item" wx:for="{{websites}}" wx:key="index" bindtap="toArticleDetail" data-link="{{item.link}}" hover-class="item-hover" hover-stay-time="200">{{item.title}}</view>
     </view>
   </scroll-view>
 </view>

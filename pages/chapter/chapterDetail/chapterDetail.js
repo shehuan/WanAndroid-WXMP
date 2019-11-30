@@ -1,5 +1,5 @@
-let api = require('../../utils/api.js')
-let util = require('../../utils/util.js')
+let api = require('../../../utils/api.js')
+let util = require('../../../utils/util.js')
 
 Page({
 
@@ -7,10 +7,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    swiperIndex: 0,
+    chapterId: -1,
     articleList: {
-      datas: [],
-      curPage: 0,
+      curPage: 1,
+      datas: []
     }
   },
 
@@ -18,34 +18,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.getBanner();
-    this.getArticleList();
+    wx.setNavigationBarTitle({
+      title: options.name
+    });
+    this.data.chapterId = options.id;
 
-    wx.getSystemInfo({
-      success: function(res) {
-        console.log(res)
-      },
-    })
+    this.getChapterArticleList();
   },
 
-  // 顶部banner
-  getBanner: function() {
-    api.banner()
+  // 公众号文章列表
+  getChapterArticleList: function() {
+    api.chapterArticleList(this.data.chapterId, this.data.articleList.curPage)
       .then(data => {
-        this.setData({
-          bannerList: data
-        })
-      });
-  },
-
-  // 文章列表
-  getArticleList: function() {
-    let curPage = this.data.articleList.curPage;
-    api.articleList(curPage)
-      .then(data => {
-        this.data.articleList.datas.push(...data.datas);
         this.data.articleList.curPage = data.curPage;
         this.data.articleList.pageCount = data.pageCount;
+        this.data.articleList.datas.push(...data.datas);
         this.setData({
           articleList: this.data.articleList
         })
@@ -55,13 +42,7 @@ Page({
       })
   },
 
-  swiperChange: function(event) {
-    this.setData({
-      swiperIndex: event.detail.current
-    })
-  },
-
-  toArticleDetail: function (event) {
+  toArticleDetail: function(event) {
     let link = event.currentTarget.dataset.link;
     util.copyLink(link);
   },
@@ -102,8 +83,7 @@ Page({
       datas: [],
       curPage: 0,
     }
-    this.getBanner();
-    this.getArticleList();
+    this.getChapterArticleList();
   },
 
   /**
@@ -111,7 +91,7 @@ Page({
    */
   onReachBottom: function() {
     if (this.data.articleList.curPage < this.data.articleList.pageCount) {
-      this.getArticleList();
+      this.getChapterArticleList();
     } else {
       util.toast('没有了哦~');
     }

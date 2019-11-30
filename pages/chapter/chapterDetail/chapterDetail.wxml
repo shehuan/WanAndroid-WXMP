@@ -1,0 +1,8 @@
+<block wx:for="{{articleList.datas}}" wx:key="index">
+  <view class="article" bindtap="toArticleDetail" data-link="{{item.link}}" hover-class="item-hover" hover-stay-time="200">
+    <text class="title">{{item.title}}</text>
+    <view class="bottom">
+      <text class="date">{{item.niceDate}}</text>
+    </view>
+  </view>
+</block>

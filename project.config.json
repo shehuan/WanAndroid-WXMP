@@ -13,7 +13,7 @@
 		"coverView": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.4",
+	"libVersion": "2.9.4",
 	"appid": "wx9928b3225eee5caa",
 	"projectname": "WanAndroid-WXPM",
 	"debugOptions": {

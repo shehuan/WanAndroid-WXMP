@@ -1,4 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "main-navi": "../../components/main-navi"
+  },
+  "navigationStyle": "custom",
   "enablePullDownRefresh": true
 }

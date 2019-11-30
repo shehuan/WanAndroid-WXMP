@@ -28,7 +28,7 @@ let query = (pageNum, param) => wxRequest.post(`/article/query/${pageNum}/json`,
 let tree = () => wxRequest.get('/tree/json');
 
 // 体系下的文章
-let treeDetail = (pageNum, param) => wxRequest.get(`/article/list/${pageNum}/json`);
+let treeDetail = (pageNum, param) => wxRequest.get(`/article/list/${pageNum}/json`, param);
 
 // 最新项目
 let newProject = (pageNum) => wxRequest.get(`/article/listproject/${pageNum}/json`);
@@ -46,7 +46,7 @@ let navi = () => wxRequest.get('/navi/json');
 let chapter = () => wxRequest.get('/wxarticle/chapters/json');
 
 // 微信公众号文章列表/搜索
-let chapterArticleList = (chapterId, pageNum, param) => wxRequest.get(`/wxarticle/list/${chapterId}/${pageNum}/json`);
+let chapterArticleList = (chapterId, pageNum, param) => wxRequest.get(`/wxarticle/list/${chapterId}/${pageNum}/json`, param);
 
 // 收藏文章列表
 let collectArticleList = (pageNum) => wxRequest.get(`/lg/collect/list/${pageNum}/json`);

@@ -5,14 +5,15 @@
     "pages/chapter/chapter",
     "pages/tree/tree",
     "pages/nav/nav",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/tree/treeDetail/treeDetail",
+    "pages/chapter/chapterDetail/chapterDetail"
   ],
   "window": {
     "backgroundColor": "#f4f4f4",
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#FE6243",
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#707070",

@@ -7,5 +7,9 @@
 }
 
 page {
-  background-color: #f4f4f4;
+  background-color: white;
+}
+
+.item-hover {
+  background-color: rgba(254, 98, 67, 0.05);
 }

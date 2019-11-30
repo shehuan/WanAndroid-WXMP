@@ -1,7 +1,6 @@
 /* pages/tree/tree.wxss */
 
 .tree {
-  background: white;
   padding: 20rpx;
   border-bottom: 10rpx #eeeef5 solid;
   display: flex;

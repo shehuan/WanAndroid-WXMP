@@ -51,7 +51,7 @@
 .right .content .item {
   font-size: 30rpx;
   color: #2c2c2c;
-  border: 1rpx #fe6243 solid;
+  border: 1rpx rgba(254, 98, 67, 0.5) solid;
   border-radius: 30rpx;
   padding: 6rpx 18rpx;
   margin: 12rpx 18rpx;

@@ -1,4 +1,5 @@
 let api = require('../../utils/api.js')
+let util = require('../../utils/util.js')
 
 Page({
 
@@ -67,6 +68,11 @@ Page({
         })
       },
     })
+  },
+
+  toArticleDetail: function (event) {
+    let link = event.currentTarget.dataset.link;
+    util.copyLink(link);
   },
 
   /**

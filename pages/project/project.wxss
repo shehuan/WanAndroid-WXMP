@@ -9,6 +9,7 @@ page {
 .category {
   height: 60rpx;
   white-space: nowrap;
+  background: #f4f4f4;
 }
 
 .category .item {
@@ -28,11 +29,16 @@ page {
   flex: 1;
 }
 
+.list {
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+  background-color: white;
+}
+
 .project {
   padding: 20rpx;
   box-sizing: border-box;
   position: relative;
-  background: white;
   border-bottom: 1rpx #cdcdcd solid;
   display: flex;
 }

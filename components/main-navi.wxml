@@ -1,0 +1,10 @@
+<!--components/MainNavi.wxml-->
+<view class="navi" style="height:{{naviInfo.naviHeight}}px;padding-top:{{naviInfo.menuTop}}px;">
+  <view class="menu" style="width:{{naviInfo.menuWidth}}px;height:{{naviInfo.menuHeight}}px;margin-left:{{10}}px;">
+    <image class="icon" style="width:{{naviInfo.menuHeight}}px;height:{{naviInfo.menuHeight}}px;" src="/images/menu.png" bindtap="toMine"></image>
+    <view class="line"></view>
+    <image class="icon" style="width:{{naviInfo.menuHeight}}px;height:{{naviInfo.menuHeight}}px;" src="/images/search.png" bindtap="toSearch"></image>
+  </view>
+
+  <view class="title" style="line-height:{{naviInfo.menuHeight}}px;top:{{naviInfo.menuTop}}px">{{title}}</view>
+</view>

@@ -1,4 +1,7 @@
 {
-  "navigationBarTitleText": "首页",
+  "usingComponents": {
+    "main-navi": "../../components/main-navi"
+  },
+  "navigationStyle": "custom",
   "enablePullDownRefresh": true
 }
