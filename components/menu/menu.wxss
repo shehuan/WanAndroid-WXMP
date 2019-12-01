@@ -1,0 +1,58 @@
+/* components/menu/menu.wxss */
+
+.bg {
+  width: 100%;
+  height: 100%;
+  z-index: 300;
+  position: fixed;
+  left: 0;
+  display: flex;
+}
+
+.right {
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.menu {
+  height: 100%;
+  background-color: white;
+}
+
+.top {
+  background-color: #fe6243;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40rpx 0;
+}
+
+.top image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.top text {
+  font-size: 32rpx;
+  color: white;
+  margin-top: 20rpx;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  margin-top: 40rpx;
+  margin-left: 30rpx;
+}
+
+.item image {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.item text {
+  font-size: 28rpx;
+  color: #2c2c2c;
+  margin-left: 60rpx;
+}

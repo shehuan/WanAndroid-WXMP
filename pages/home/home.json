@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "main-navi": "../../components/main-navi"
+    "main-navi": "../../components/main-navi/main-navi",
+    "menu": "../../components/menu/menu"
   },
   "navigationStyle": "custom",
   "enablePullDownRefresh": true

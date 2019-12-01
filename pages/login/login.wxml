@@ -1,0 +1,5 @@
+<!--pages/login/login.wxml-->
+<input placeholder="用户名" maxlength="20" focus="true" bindinput="inputName"></input>
+<input placeholder="密码" password="true" maxlength="20" bindinput="inputPassword"></input>
+<view class="login" bindtap="login" hover-class="hover" hover-start-time="0" hover-stay-time="100">登录</view>
+<text class="register" bindtap="register">注册</text>

@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "main-navi": "../../components/main-navi"
+    "main-navi": "../../components/main-navi/main-navi"
   },
   "navigationStyle": "custom"
 }

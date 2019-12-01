@@ -15,8 +15,16 @@ function request(method, url, param, isShowLoading) {
       data: param,
       header: {
         'content-type': 'application/x-www-form-urlencoded',
+        'cookie': wx.getStorageSync('cookie')
       },
       success: function(res) {
+        // 保存登录返回的cookie
+        if (url.indexOf('login') != -1) {
+          wx.setStorage({
+            key: 'cookie',
+            data: res.header['Set-Cookie'],
+          })
+        }
         console.log('接口：' + url, ' 参数：', param, '\n返回值：', res.data)
         if (isShowLoading) {
           wx.hideLoading();

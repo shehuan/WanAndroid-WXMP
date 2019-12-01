@@ -1,7 +1,7 @@
 /* pages/home/home.wxss */
 
-.top{
-  position: relative
+.top {
+  position: relative;
 }
 
 .banner {

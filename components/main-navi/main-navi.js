@@ -16,6 +16,7 @@ Component({
    */
   data: {
     naviInfo: app.globalData.naviInfo,
+    left: -app.globalData.naviInfo.naviWidth
   },
 
   /**
@@ -23,10 +24,14 @@ Component({
    */
   methods: {
     toMine: function() {
-      console.log(123)
+      this.setData({
+        left: 0
+      })
     },
     toSearch: function() {
-      console.log(111)
+      wx.navigateTo({
+        url: '/pages/search/search',
+      })
     }
   }
 })

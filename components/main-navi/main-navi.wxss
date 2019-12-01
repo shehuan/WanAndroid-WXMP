@@ -1,9 +1,11 @@
 /* components/MainNavi.wxss */
 
 .navi {
+  width: 100%;
   background-color: #fe6243;
   box-sizing: border-box;
-  position: relative;
+  position: fixed;
+  z-index: 200;
 }
 
 .menu {
@@ -24,13 +26,13 @@
 }
 
 .icon{
-  z-index: 999;
+  z-index: 100;
 }
 
 .title{
   width: 100%;
   color: white;
-  font-size: 28rpx;
+  font-size: 36rpx;
   text-align: center;
   position: absolute;
 }

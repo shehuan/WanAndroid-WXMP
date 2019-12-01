@@ -8,3 +8,5 @@
 
   <view class="title" style="line-height:{{naviInfo.menuHeight}}px;top:{{naviInfo.menuTop}}px">{{title}}</view>
 </view>
+<view style="height:{{naviInfo.naviHeight}}px;"></view>
+<menu left="{{left}}"></menu>

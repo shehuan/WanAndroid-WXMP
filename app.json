@@ -7,7 +7,11 @@
     "pages/nav/nav",
     "pages/index/index",
     "pages/tree/treeDetail/treeDetail",
-    "pages/chapter/chapterDetail/chapterDetail"
+    "pages/chapter/chapterDetail/chapterDetail",
+    "pages/search/search",
+    "pages/login/login",
+    "pages/register/register",
+    "pages/collection/collection"
   ],
   "window": {
     "backgroundColor": "#f4f4f4",
