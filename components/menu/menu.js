@@ -85,7 +85,15 @@ Component({
           }
         }
       })
-    }
+    },
+
+    toSetting: function() {
+      util.toast('todo~！')
+    },
+
+    toAbout: function() {
+      util.toast('todo~！')
+    },
   },
 
   attached: function() {

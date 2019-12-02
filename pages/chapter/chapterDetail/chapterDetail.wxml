@@ -1,9 +1,10 @@
-<wxs src="../../../app.wxs" module="app"/>
+<wxs src="../../../app.wxs" module="app" />
 <block wx:for="{{articleList.datas}}" wx:key="index">
   <view class="article" bindtap="toArticleDetail" data-link="{{item.link}}" hover-class="item-hover" hover-start-time="0" hover-stay-time="200">
     <text class="title">{{app.filterTag(item.title)}}</text>
     <view class="bottom">
       <text class="date">{{item.niceDate}}</text>
     </view>
+    <image class="collect" src="{{item.collect?'../../../images/like_fill.png':'../../../images/like.png'}}" data-id="{{item.id}}" data-collect="{{item.collect}}" data-index="{{index}}" catchtap="doCollect"></image>
   </view>
 </block>

@@ -1,4 +1,4 @@
-<wxs src="../../app.wxs" module="app"/>
+<wxs src="../../app.wxs" module="app" />
 <view class="top">
   <view class="search">
     <image src="../../images/search2.png"></image>
@@ -17,7 +17,7 @@
       <text class="clear" bindtap="clearQueryHistory">清空记录</text>
     </view>
     <view class="history">
-      <view class="item" wx:for="{{queryHistoryList}}" wx:key="index" bindtap="itemClick" data-content="{{item}}" hover-class="item-hover" hover-start-time="0" hover-stay-time="100">{{item}}</view>
+      <view class="item" wx:for="{{queryHistoryList}}" wx:key="index" bindtap="itemClick" data-content="{{item}}" hover-class="item-hover" hover-start-time="0" hover-stay-time="200">{{item}}</view>
     </view>
   </view>
 
@@ -26,7 +26,7 @@
   <view class="group">
     <text class="type-title">热门搜索</text>
     <view class="hotkey">
-      <view class="item" wx:for="{{hotkeyList}}" wx:key="index" bindtap="itemClick" data-content="{{item.name}}" hover-class="item-hover" hover-start-time="0" hover-stay-time="100">{{item.name}}</view>
+      <view class="item" wx:for="{{hotkeyList}}" wx:key="index" bindtap="itemClick" data-content="{{item.name}}" hover-class="item-hover" hover-start-time="0" hover-stay-time="200">{{item.name}}</view>
     </view>
   </view>
 </view>
@@ -40,6 +40,7 @@
         <text class="author" wx:if="{{item.author!=''}}">{{item.author}}</text>
         <text class="date">{{item.niceDate}}</text>
       </view>
+      <image class="collect" src="{{item.collect?'../../images/like_fill.png':'../../images/like.png'}}" data-id="{{item.id}}" data-collect="{{item.collect}}" data-index="{{index}}" catchtap="doCollect"></image>
     </view>
   </block>
 </view>

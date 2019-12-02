@@ -13,3 +13,11 @@ page {
 .item-hover {
   background-color: rgba(254, 98, 67, 0.05);
 }
+
+.collect {
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  bottom: 20rpx;
+  right: 20rpx;
+}

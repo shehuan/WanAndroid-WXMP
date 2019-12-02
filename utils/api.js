@@ -52,13 +52,13 @@ let chapterArticleList = (chapterId, pageNum, param) => wxRequest.get(`/wxarticl
 let collectArticleList = (pageNum) => wxRequest.get(`/lg/collect/list/${pageNum}/json`);
 
 // 收藏站内文章
-let collectArticle = (id) => wxRequest.post(`/lg/collect/${id}/json`)
+let collectArticle = (id) => wxRequest.post(`/lg/collect/${id}/json`);
 
 // 在文章列表取消收藏
-let uncollectArticle = (id) => wxRequest.post(`/lg/uncollect_originId/${id}/json`)
+let uncollectArticle = (id) => wxRequest.post(`/lg/uncollect_originId/${id}/json`);
 
 // 在收藏列表取消收藏
-let cancelMyCollection = (id) => wxRequest.post(`/lg/uncollect/${id}/json`)
+let cancelMyCollection = (id, param) => wxRequest.post(`/lg/uncollect/${id}/json`, param);
 
 module.exports = {
   login,

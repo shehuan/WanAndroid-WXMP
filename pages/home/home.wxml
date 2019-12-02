@@ -1,4 +1,4 @@
-<wxs src="../../app.wxs" module="app"/>
+<wxs src="../../app.wxs" module="app" />
 <main-navi title="首页"></main-navi>
 <view class="top">
   <swiper class="banner" autoplay="true" interval="3000" duration="500" bindchange="swiperChange">
@@ -19,5 +19,6 @@
       <text class="author" wx:if="{{item.author!=''}}">{{item.author}}</text>
       <text class="date">{{item.niceDate}}</text>
     </view>
+    <image class="collect" src="{{item.collect?'../../images/like_fill.png':'../../images/like.png'}}" data-id="{{item.id}}" data-collect="{{item.collect}}" data-index="{{index}}" catchtap="doCollect"></image>
   </view>
 </block>

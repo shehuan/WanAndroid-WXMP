@@ -1,4 +1,4 @@
-<wxs src="../../app.wxs" module="app"/>
+<wxs src="../../app.wxs" module="app" />
 <main-navi title="项目"></main-navi>
 <scroll-view scroll-x="true" scroll-with-animation="true" class="category" scroll-left="{{scrollLeft}}">
   <view wx:for="{{categoryList}}" class="item {{index==swiperIndex?'active':''}}" wx:key="index" catchtap="tabCahnge" data-index="{{index}}">{{item.name}}</view>
@@ -7,7 +7,7 @@
   <swiper-item wx:for="{{projectList}}" wx:key="index">
     <scroll-view class="list " scroll-y="true" bindscrolltolower="loadMore" scroll-anchoring="true">
       <view class="project" wx:for="{{item.datas}}" wx:key="index" bindtap="toArticleDetail" data-link="{{item.link}}" hover-class="item-hover" hover-start-time="0" hover-stay-time="200">
-        <image src="{{item.envelopePic}}"></image>
+        <image class="pic" src="{{item.envelopePic}}"></image>
         <view class="content">
           <text class="title">{{app.filterTag(item.title)}}</text>
           <text class="desc">{{app.filterTag(item.desc)}}</text>
@@ -15,6 +15,7 @@
             <text class="author">{{item.author}}</text>
             <text class="date">{{item.niceDate}}</text>
           </view>
+          <image class="collect" src="{{item.collect?'../../images/like_fill.png':'../../images/like.png'}}" data-id="{{item.id}}" data-collect="{{item.collect}}" data-index="{{index}}" catchtap="doCollect"></image>
         </view>
       </view>
     </scroll-view>

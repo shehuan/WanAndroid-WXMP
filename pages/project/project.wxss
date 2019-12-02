@@ -43,7 +43,7 @@ page {
   display: flex;
 }
 
-.project image {
+.project .pic {
   width: 120rpx;
   height: 220rpx;
 }
@@ -97,4 +97,9 @@ page {
 .bottom .date {
   font-size: 20rpx;
   color: #bfbfbf;
+}
+
+.collect {
+  bottom: 0;
+  right: 0;
 }

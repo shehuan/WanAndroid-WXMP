@@ -1,4 +1,4 @@
-<wxs src="../../../app.wxs" module="app"/>
+<wxs src="../../../app.wxs" module="app" />
 <scroll-view scroll-x="true" scroll-with-animation="true" class="category" scroll-left="{{scrollLeft}}">
   <view wx:for="{{categoryList}}" class="item {{index==swiperIndex?'active':''}}" wx:key="index" catchtap="tabCahnge" data-index="{{index}}">{{item.name}}</view>
 </scroll-view>
@@ -11,6 +11,7 @@
           <text class="author" wx:if="{{item.author!=''}}">{{item.author}}</text>
           <text class="date">{{item.niceDate}}</text>
         </view>
+        <image class="collect" src="{{item.collect?'../../../images/like_fill.png':'../../../images/like.png'}}" data-id="{{item.id}}" data-collect="{{item.collect}}" data-index="{{index}}" catchtap="doCollect"></image>
       </view>
     </scroll-view>
   </swiper-item>
