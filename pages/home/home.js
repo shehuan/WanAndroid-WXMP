@@ -20,12 +20,6 @@ Page({
   onLoad: function(options) {
     this.getBanner();
     this.getArticleList();
-
-    wx.getSystemInfo({
-      success: function(res) {
-        console.log(res)
-      },
-    })
   },
 
   // 顶部banner
@@ -61,7 +55,7 @@ Page({
     })
   },
 
-  toArticleDetail: function (event) {
+  toArticleDetail: function(event) {
     let link = event.currentTarget.dataset.link;
     util.copyLink(link);
   },

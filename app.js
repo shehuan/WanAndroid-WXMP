@@ -2,7 +2,17 @@
 
 App({
   onLaunch: function() {
-    // 获取菜单按钮（右上角胶囊按钮）的布局位置信息
+    this.getNaviInfo();
+
+    Array.prototype.remove = function(from, to) {
+      var rest = this.slice((to || from) + 1 || this.length);
+      this.length = from < 0 ? this.length + from : from;
+      return this.push.apply(this, rest);
+    };
+  },
+
+  // 获取菜单按钮（右上角胶囊按钮）的布局位置信息
+  getNaviInfo: function() {
     let menuRect = wx.getMenuButtonBoundingClientRect();
     wx.getSystemInfo({
       success: (res) => {
@@ -22,7 +32,7 @@ App({
     baseurl: 'https://www.wanandroid.com',
     naviInfo: {
       naviHeight: 0,
-      naviWidth:0,
+      naviWidth: 0,
       menuTop: 0,
       menuHeight: 0,
       menuWidth: 0,

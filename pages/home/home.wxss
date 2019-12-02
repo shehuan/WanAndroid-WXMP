@@ -5,7 +5,7 @@
 }
 
 .banner {
-  height: 350rpx;
+  height: 380rpx;
 }
 
 .banner image {

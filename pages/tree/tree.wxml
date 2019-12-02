@@ -1,6 +1,6 @@
 <main-navi title="体系"></main-navi>
 <block wx:for="{{treeList}}" wx:key="index">
-  <view class="tree" bindtap="toTreeDetail" data-children="{{item.children}}" data-name="{{item.name}}" hover-class="item-hover" hover-stay-time="200">
+  <view class="tree" bindtap="toTreeDetail" data-children="{{item.children}}" data-name="{{item.name}}" hover-class="item-hover" hover-start-time="0" hover-stay-time="200">
     <view class="content">
       <view class="title">{{item.name}}</view>
       <view class="children">

@@ -1,0 +1,8 @@
+var filterTag = function(content) {
+  var reg = getRegExp('<[^>]+>|&\w+;', 'g');
+  return content.replace(reg, '').trim();
+}
+
+module.exports = {
+  filterTag: filterTag
+}

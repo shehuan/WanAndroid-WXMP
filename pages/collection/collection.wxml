@@ -1,2 +1,2 @@
-<!--pages/collection/collection.wxml-->
+<wxs src="../../app.wxs" module="app"/>
 <text>pages/collection/collection.wxml</text>

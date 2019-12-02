@@ -1,2 +1,45 @@
-<!--pages/search/search.wxml-->
-<text>pages/search/search.wxml</text>
+<wxs src="../../app.wxs" module="app"/>
+<view class="top">
+  <view class="search">
+    <image src="../../images/search2.png"></image>
+    <input maxlength="20" bindinput="inputChange" bindconfirm="confirmSearch" placeholder="输入关键字，多个用空格隔开" confirm-type="search" value="{{content}}"></input>
+    <image class="delete" src="../../images/delete.png" bindtap="deleteContent" wx:if="{{content.length > 0}}"></image>
+  </view>
+  <view class="cancel" bindtap="cancel" wx:if="{{showQueryResult}}">取消</view>
+</view>
+
+<view class="empty-top"></view>
+
+<view wx:if="{{!showQueryResult}}">
+  <view class="group" wx:if="{{queryHistoryList.length >0}}">
+    <view>
+      <text class="type-title">搜索记录</text>
+      <text class="clear" bindtap="clearQueryHistory">清空记录</text>
+    </view>
+    <view class="history">
+      <view class="item" wx:for="{{queryHistoryList}}" wx:key="index" bindtap="itemClick" data-content="{{item}}" hover-class="item-hover" hover-start-time="0" hover-stay-time="100">{{item}}</view>
+    </view>
+  </view>
+
+  <view class="line" wx:if="{{queryHistoryList.length >0}}"></view>
+
+  <view class="group">
+    <text class="type-title">热门搜索</text>
+    <view class="hotkey">
+      <view class="item" wx:for="{{hotkeyList}}" wx:key="index" bindtap="itemClick" data-content="{{item.name}}" hover-class="item-hover" hover-start-time="0" hover-stay-time="100">{{item.name}}</view>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{showQueryResult}}">
+  <block>
+    <view class="article" wx:for="{{queryList.datas}}" wx:key="index" bindtap="toArticleDetail" data-link="{{item.link}}" hover-class="item-hover" hover-start-time="0" hover-stay-time="200">
+      <text class="title">{{app.filterTag(item.title)}}</text>
+      <view class="bottom">
+        <text class="type" wx:if="{{item.tags.length>0}}">{{item.tags[0].name}}</text>
+        <text class="author" wx:if="{{item.author!=''}}">{{item.author}}</text>
+        <text class="date">{{item.niceDate}}</text>
+      </view>
+    </view>
+  </block>
+</view>

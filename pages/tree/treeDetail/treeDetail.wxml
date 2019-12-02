@@ -1,11 +1,12 @@
+<wxs src="../../../app.wxs" module="app"/>
 <scroll-view scroll-x="true" scroll-with-animation="true" class="category" scroll-left="{{scrollLeft}}">
   <view wx:for="{{categoryList}}" class="item {{index==swiperIndex?'active':''}}" wx:key="index" catchtap="tabCahnge" data-index="{{index}}">{{item.name}}</view>
 </scroll-view>
 <swiper class="project-group" current="{{swiperIndex}}" bindchange="swiperChange">
   <swiper-item wx:for="{{articleList}}" wx:key="index">
     <scroll-view class="list" scroll-y="true" bindscrolltolower="loadMore" scroll-anchoring="true">
-      <view class="article" wx:for="{{item.datas}}" wx:key="index" bindtap="toArticleDetail" data-link="{{item.link}}" hover-class="item-hover" hover-stay-time="200">
-        <text class="title">{{item.title}}</text>
+      <view class="article" wx:for="{{item.datas}}" wx:key="index" bindtap="toArticleDetail" data-link="{{item.link}}" hover-class="item-hover" hover-start-time="0" hover-stay-time="200">
+        <text class="title">{{app.filterTag(item.title)}}</text>
         <view class="bottom">
           <text class="author" wx:if="{{item.author!=''}}">{{item.author}}</text>
           <text class="date">{{item.niceDate}}</text>

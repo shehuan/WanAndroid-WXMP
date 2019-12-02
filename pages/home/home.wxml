@@ -1,18 +1,19 @@
+<wxs src="../../app.wxs" module="app"/>
 <main-navi title="首页"></main-navi>
 <view class="top">
   <swiper class="banner" autoplay="true" interval="3000" duration="500" bindchange="swiperChange">
     <swiper-item wx:for="{{bannerList}}" wx:key="index">
       <view class="banner" bindtap="toArticleDetail" data-link="{{item.url}}">
         <image mode="scaleToFill" src="{{item.imagePath}}"></image>
-        <view class="title">{{item.title}}</view>
+        <view class="title">{{app.filterTag(item.title)}}</view>
       </view>
     </swiper-item>
   </swiper>
   <text class="indicator">{{swiperIndex+1}}/{{bannerList.length}}</text>
 </view>
-<block wx:for="{{articleList.datas}}" wx:key="index">
-  <view class="article" bindtap="toArticleDetail" data-link="{{item.link}}" hover-class="item-hover" hover-stay-time="200">
-    <text class="title">{{item.title}}</text>
+<block>
+  <view class="article" wx:for="{{articleList.datas}}" wx:key="index" bindtap="toArticleDetail" data-link="{{item.link}}" hover-class="item-hover" hover-start-time="0" hover-stay-time="200">
+    <text class="title">{{app.filterTag(item.title)}}</text>
     <view class="bottom">
       <text class="type" wx:if="{{item.tags.length>0}}">{{item.tags[0].name}}</text>
       <text class="author" wx:if="{{item.author!=''}}">{{item.author}}</text>
