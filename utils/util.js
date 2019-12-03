@@ -1,19 +1,3 @@
-const formatTime = date => {
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-  const hour = date.getHours()
-  const minute = date.getMinutes()
-  const second = date.getSeconds()
-
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
-}
-
-const formatNumber = n => {
-  n = n.toString()
-  return n[1] ? n : '0' + n
-}
-
 // 计算scroll-view中每个item的大小
 const getItemSize = selector => {
   return new Promise((resolve, reject) => {
@@ -48,6 +32,7 @@ const copyLink = link => {
   })
 }
 
+// 显示toast
 const toast = (title, icon = 'none') => {
   wx.showToast({
     title: title,
@@ -56,7 +41,6 @@ const toast = (title, icon = 'none') => {
 }
 
 module.exports = {
-  formatTime: formatTime,
   getItemSize: getItemSize,
   getScrollWidth: getScrollWidth,
   copyLink: copyLink,

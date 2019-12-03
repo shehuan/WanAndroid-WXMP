@@ -25,12 +25,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 40rpx 0;
+  padding: 50rpx 0;
 }
 
 .top image {
-  width: 100rpx;
-  height: 100rpx;
+  width: 170rpx;
+  height: 120rpx;
+  /* border-radius: 120rpx;
+  border: 1rpx white solid; */
 }
 
 .top text {
@@ -42,9 +44,12 @@
 .item {
   display: flex;
   align-items: center;
-  margin-top: 40rpx;
-  margin-left: 30rpx;
+  padding: 20rpx 0 20rpx 30rpx;
 }
+
+/* .item:nth-child(2) {
+  margin-top: 20rpx;
+} */
 
 .item image {
   width: 50rpx;
@@ -55,4 +60,8 @@
   font-size: 28rpx;
   color: #2c2c2c;
   margin-left: 60rpx;
+}
+
+.item-hover {
+  background-color: rgba(254, 98, 67, 0.05);
 }

@@ -9,7 +9,10 @@ Page({
   data: {
     name: '',
     password: '',
-    password2: ''
+    password2: '',
+    nameFocus: true,
+    passwordFocus: false,
+    passwordFocus2: false
   },
 
   /**
@@ -65,13 +68,37 @@ Page({
     api.register(param)
       .then(data => {
         util.toast('注册成功~');
-        
+
         setTimeout(() => {
           wx.navigateBack({})
         }, 1000)
       }).catch(data => {
 
       })
+  },
+
+  nameBindfocus: function() {
+    this.setData({
+      nameFocus: true,
+      passwordFocus: false,
+      passwordFocus2: false
+    })
+  },
+
+  passwordBindfocus: function() {
+    this.setData({
+      nameFocus: false,
+      passwordFocus: true,
+      passwordFocus2: false,
+    })
+  },
+
+  passwordBindfocus2: function() {
+    this.setData({
+      nameFocus: false,
+      passwordFocus: false,
+      passwordFocus2: true
+    })
   },
 
   /**

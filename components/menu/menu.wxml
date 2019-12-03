@@ -2,22 +2,22 @@
 <view class="bg" style="top:{{naviInfo.statusBarHeight}}px;left:{{left}}px;">
   <view class="menu" style="width:{{2*naviInfo.naviWidth/3}}px">
     <view class="top">
-      <image src="/images/search.png"></image>
+      <image src="/images/wan_android.png"></image>
       <text bindtap="login">{{name}}</text>
     </view>
-    <view class="item" bindtap="toCollection">
+    <view class="item" bindtap="toCollection" hover-class="item-hover" hover-start-time="0" hover-stay-time="200">
       <image src="/images/collection.png"></image>
       <text>收藏</text>
     </view>
-    <view class="item" bindtap="toSetting">
+    <view class="item" bindtap="toSetting" hover-class="item-hover" hover-start-time="0" hover-stay-time="200">
       <image src="/images/setting.png"></image>
       <text>设置</text>
     </view>
-    <view class="item" bindtap="toAbout">
+    <view class="item" bindtap="toAbout" hover-class="item-hover" hover-start-time="0" hover-stay-time="200">
       <image src="/images/flag.png"></image>
       <text>关于</text>
     </view>
-    <view class="item" bindtap="toLogout">
+    <view class="item" bindtap="toLogout" hover-class="item-hover" hover-start-time="0" hover-stay-time="200">
       <image src="/images/logout.png"></image>
       <text>退出</text>
     </view>

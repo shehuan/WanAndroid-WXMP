@@ -1,4 +1,5 @@
 const wxRequest = require('/wxRequest.js');
+const util = require('/util.js');
 
 // 登录
 let login = (param) => wxRequest.post('/user/login', param);
@@ -60,6 +61,32 @@ let uncollectArticle = (id) => wxRequest.post(`/lg/uncollect_originId/${id}/json
 // 在收藏列表取消收藏
 let cancelMyCollection = (id, param) => wxRequest.post(`/lg/uncollect/${id}/json`, param);
 
+// 在文章列表收藏或者取消收藏
+let doCollect = (id, collect) => {
+  if (!wx.getStorageSync('name')) {
+    return util.toast('请先登录！');
+  }
+  return new Promise((resolve, reject) => {
+    if (!collect) {
+      collectArticle(id)
+        .then(data => {
+          util.toast('收藏成功~');
+          resolve(data);
+        }).catch(data => {
+          reject(data);
+        })
+    } else {
+      uncollectArticle(id)
+        .then(data => {
+          util.toast('已取消收藏~');
+          resolve(data);
+        }).catch(data => {
+          reject(data);
+        })
+    }
+  });
+};
+
 module.exports = {
   login,
   register,
@@ -80,5 +107,6 @@ module.exports = {
   collectArticleList,
   collectArticle,
   uncollectArticle,
-  cancelMyCollection
+  cancelMyCollection,
+  doCollect
 }

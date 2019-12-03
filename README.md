@@ -1,1 +1,1 @@
-# WanAndroid-WXPM
+# WanAndroid-WXMP

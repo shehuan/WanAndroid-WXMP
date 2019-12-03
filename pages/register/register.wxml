@@ -1,5 +1,5 @@
 <!--pages/register/register.wxml-->
-<input placeholder="用户名" maxlength="20" focus="true" bindinput="inputName"></input>
-<input placeholder="密码" password="true" maxlength="20" bindinput="inputPassword"></input>
-<input placeholder="确认密码" password="true" maxlength="20" bindinput="inputPassword2"></input>
+<input class="{{nameFocus?'input-active':''}}" placeholder="用户名" maxlength="20" focus="true" bindfocus="nameBindfocus" bindinput="inputName"></input>
+<input class="{{passwordFocus?'input-active':''}}" placeholder="密码" password="true" maxlength="20" bindfocus="passwordBindfocus" bindinput="inputPassword"></input>
+<input class="{{passwordFocus2?'input-active':''}}" placeholder="确认密码" password="true" maxlength="20" bindfocus="passwordBindfocus2" bindinput="inputPassword2"></input>
 <view class="register" bindtap="register" hover-class="hover" hover-start-time="0" hover-stay-time="100">注册</view>

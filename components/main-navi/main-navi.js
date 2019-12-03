@@ -2,7 +2,7 @@
 let app = getApp()
 Component({
   /**
-   * 组件的属性列表
+   * 组件的对外属性，是属性名到属性设置的映射表
    */
   properties: {
     title: {
@@ -12,7 +12,7 @@ Component({
   },
 
   /**
-   * 组件的初始数据
+   * 组件的内部数据，和 properties 一同用于组件的模板渲染
    */
   data: {
     naviInfo: app.globalData.naviInfo,
@@ -33,5 +33,17 @@ Component({
         url: '/pages/search/search',
       })
     }
+  },
+
+  /**
+   * 组件所在页面的生命周期声明对象
+   */
+  pageLifetimes: {
+    // 页面被隐藏
+    hide: function() {
+      this.setData({
+        left: -app.globalData.naviInfo.naviWidth
+      })
+    },
   }
 })
