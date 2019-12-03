@@ -1,7 +1,7 @@
 # WanAndroid-WXMP 小程序
 ## 说明
 
-** 一个小程序版的玩Android，基于鸿洋大神的[玩Android开放API](http://www.wanandroid.com/blog/show/2)开发。
+**一个小程序版的玩Android，基于鸿洋大神的[玩Android开放API](http://www.wanandroid.com/blog/show/2)开发。**
 
 扫码体验：
 
