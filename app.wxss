@@ -8,6 +8,9 @@
 
 page {
   background-color: white;
+  /*黑白化样式*/
+  /* -webkit-filter: grayscale(100%);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); */
 }
 
 .item-hover {
