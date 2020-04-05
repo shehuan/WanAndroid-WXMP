@@ -37,5 +37,5 @@ input {
 }
 
 .hover{
-  background-color: #db553a
+   background-color: #db553a;
 }

@@ -1,4 +1,4 @@
-<wxs src="../../app.wxs" module="app"/>
+<wxs src="../../app.wxs" module="app" />
 <block>
   <view class="article" wx:for="{{collectionList.datas}}" wx:key="index" bindtap="toArticleDetail" data-link="{{item.link}}" hover-class="item-hover" hover-start-time="0" hover-stay-time="200">
     <text class="title">{{app.filterTag(item.title)}}</text>
@@ -8,3 +8,8 @@
     <image class="collect" src="../../images/like_fill.png" data-id="{{item.id}}" data-originid="{{item.originId}}" data-index="{{index}}" catchtap="cancelCollect"></image>
   </view>
 </block>
+
+<view class="status" wx:if="{{collectionList.datas.length==0 && collectionList.pageCount >= 0}}">
+  <image src="../../images/empty.png"></image>
+  <text>空空如也</text>
+</view>

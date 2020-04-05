@@ -1,7 +1,7 @@
 <wxs src="../../app.wxs" module="app" />
 <main-navi title="项目"></main-navi>
 <scroll-view scroll-x="true" scroll-with-animation="true" class="category" scroll-left="{{scrollLeft}}">
-  <view wx:for="{{categoryList}}" class="item {{index==swiperIndex?'active':''}}" wx:key="index" catchtap="tabCahnge" data-index="{{index}}">{{item.name}}</view>
+  <view wx:for="{{categoryList}}" class="item {{index==swiperIndex?'active':''}}" wx:key="index" catchtap="tabCahnge" data-index="{{index}}">{{app.charConvert(item.name)}}</view>
 </scroll-view>
 <swiper class="project-group" current="{{swiperIndex}}" bindchange="swiperChange">
   <swiper-item wx:for="{{projectList}}" wx:key="index">

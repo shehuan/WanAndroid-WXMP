@@ -47,6 +47,23 @@ Page({
     util.copyLink(link);
   },
 
+  // 收藏、取消收藏
+  doCollect: function (event) {
+    let id = event.currentTarget.dataset.id;
+    let collect = event.currentTarget.dataset.collect;
+    let index = event.currentTarget.dataset.index;
+    let key = 'articleList.datas[' + index + '].collect';
+
+    api.doCollect(id, collect)
+      .then(data => {
+        this.setData({
+          [key]: !collect
+        })
+      }).catch(data => {
+
+      })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

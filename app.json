@@ -5,7 +5,6 @@
     "pages/chapter/chapter",
     "pages/tree/tree",
     "pages/nav/nav",
-    "pages/index/index",
     "pages/tree/treeDetail/treeDetail",
     "pages/chapter/chapterDetail/chapterDetail",
     "pages/search/search",

@@ -1,8 +1,15 @@
+// 过滤html标签、&;类型的符号，提取纯文本
 var filterTag = function(content) {
   var reg = getRegExp('<[^>]+>|&\w+;', 'g');
   return content.replace(reg, '').trim();
 }
 
+var charConvert = function(content) {
+  var reg = getRegExp('&amp;', 'g');
+  return content.replace(reg, '&')
+}
+
 module.exports = {
-  filterTag: filterTag
+  filterTag: filterTag,
+  charConvert: charConvert
 }

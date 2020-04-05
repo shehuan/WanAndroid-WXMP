@@ -53,9 +53,10 @@ Page({
     this.data.articleList[index].datas.push(...data.datas);
     this.data.articleList[index].curPage = data.curPage;
     this.data.articleList[index].pageCount = data.pageCount;
+    let key = 'articleList[' + index + ']';
 
     this.setData({
-      articleList: this.data.articleList
+      [key]: this.data.articleList[index]
     })
   },
 
@@ -114,9 +115,26 @@ Page({
       })
   },
 
-  toArticleDetail: function (event) {
+  toArticleDetail: function(event) {
     let link = event.currentTarget.dataset.link;
     util.copyLink(link);
+  },
+
+  // 收藏、取消收藏
+  doCollect: function(event) {
+    let id = event.currentTarget.dataset.id;
+    let collect = event.currentTarget.dataset.collect;
+    let index = event.currentTarget.dataset.index;
+    let key = 'articleList[' + this.data.swiperIndex + '].datas[' + index + '].collect';
+
+    api.doCollect(id, collect)
+      .then(data => {
+        this.setData({
+          [key]: !collect
+        })
+      }).catch(data => {
+
+      })
   },
 
   /**

@@ -1,5 +1,6 @@
 let api = require('../../utils/api.js')
 let util = require('../../utils/util.js')
+let app = getApp()
 
 Page({
 
@@ -64,7 +65,7 @@ Page({
     wx.getSystemInfo({
       success: function(res) {
         that.setData({
-          scrollHeight: res.windowHeight
+          scrollHeight: res.windowHeight - app.globalData.naviInfo.naviHeight
         })
       },
     })

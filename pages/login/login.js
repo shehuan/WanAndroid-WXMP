@@ -8,7 +8,9 @@ Page({
    */
   data: {
     name: '',
-    password: ''
+    password: '',
+    nameFocus: true,
+    passwordFocus: false
   },
 
   /**
@@ -64,7 +66,7 @@ Page({
 
         setTimeout(() => {
           wx.navigateBack({})
-        }, 1000)
+        }, 500)
       }).catch(data => {
 
       })
@@ -73,6 +75,20 @@ Page({
   register: function() {
     wx.navigateTo({
       url: '/pages/register/register',
+    })
+  },
+
+  nameBindfocus: function() {
+    this.setData({
+      nameFocus: true,
+      passwordFocus: false
+    })
+  },
+
+  passwordBindfocus: function() {
+    this.setData({
+      nameFocus: false,
+      passwordFocus: true
     })
   },
 

@@ -1,5 +1,5 @@
 <wxs src="../../app.wxs" module="app" />
-<main-navi title="首页"></main-navi>
+<main-navi id="navi" title="首页"></main-navi>
 <view class="top">
   <swiper class="banner" autoplay="true" interval="3000" duration="500" bindchange="swiperChange">
     <swiper-item wx:for="{{bannerList}}" wx:key="index">

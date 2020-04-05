@@ -4,17 +4,17 @@ let api = require('../../utils/api.js')
 let app = getApp()
 Component({
   /**
-   * 组件的属性列表
+   * 组件的对外属性，是属性名到属性设置的映射表
    */
   properties: {
     left: {
       type: Number,
-      value: -app.globalData.naviInfo.naviWidth
+      value: 0
     },
   },
 
   /**
-   * 组件的初始数据
+   * 组件的内部数据，和 properties 一同用于组件的模板渲染
    */
   data: {
     naviInfo: app.globalData.naviInfo,
@@ -88,21 +88,41 @@ Component({
     },
 
     toSetting: function() {
-      util.toast('todo~！')
+      util.toast('todo~')
     },
 
     toAbout: function() {
-      util.toast('todo~！')
+      util.toast('todo~')
     },
   },
 
+  /**
+   * 组件生命周期函数-在组件实例进入页面节点树时执行
+   */
   attached: function() {
-    let name = wx.getStorageSync('name');
-    if (!name || name == '') {
-      name = '登录';
-    }
-    this.setData({
-      name: name
-    })
+    // let name = wx.getStorageSync('name');
+    // if (!name) {
+    //   name = '登录';
+    // }
+    // this.setData({
+    //   name: name
+    // })
+  },
+
+  /**
+   * 组件所在页面的生命周期声明对象
+   */
+  pageLifetimes: {
+    // 页面被展示
+    // 在其它menu中登录后，需要刷新当前menu
+    show: function() {
+      let name = wx.getStorageSync('name');
+      if (!name) {
+        name = '登录';
+      }
+      this.setData({
+        name: name
+      })
+    },
   }
 })
